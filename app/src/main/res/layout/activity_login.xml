@@ -7,36 +7,36 @@
     tools:context=".activities.LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="95dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/loginbackground" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Nombre Aplicación"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="257dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_no_background"
+        tools:srcCompat="@drawable/logo_no_background" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="LOGIN"
+        android:layout_marginTop="26dp"
+        android:text="Login"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView3"
@@ -93,39 +93,34 @@
         android:layout_marginTop="24dp"
         android:onClick="onClick"
         android:text="Login"
+        app:backgroundTint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPwd" />
 
-    <TextView
+    <Button
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autoText="false"
-        android:elegantTextHeight="false"
-        android:freezesText="false"
+        android:layout_marginStart="32dp"
         android:onClick="onClick"
-        android:singleLine="false"
         android:text="Sign Up"
-        android:textAllCaps="false"
-        android:textIsSelectable="false"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        android:textColor="@color/black"
+        app:backgroundTint="#E6CCB1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
-    <TextView
+    <Button
         android:id="@+id/btnGuest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:onClick="onClick"
-        android:text="Entrar como Invitado"
-        android:textSize="16sp"
+        android:text="Invitado"
+        android:textColor="@color/black"
+        app:backgroundTint="#E6CCB1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:rippleColor="@color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
