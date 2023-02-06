@@ -1,8 +1,9 @@
 package com.ocprva.salespop.api.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Producto {
+public class Producto implements Serializable {
     private int id_prod;
     private String name;
     private int price;
