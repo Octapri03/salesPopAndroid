@@ -66,11 +66,6 @@ public class HomeFragment extends Fragment{
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerProductos.setLayoutManager(layoutManager);
 
-        DividerItemDecoration dividerItemDecoration =
-                new DividerItemDecoration(recyclerProductos.getContext(),
-                        layoutManager.getOrientation());
-        recyclerProductos.addItemDecoration(dividerItemDecoration);
-
         pAdapter = new ProductAdapter(listaProductos);
 
         pAdapter.setOnClickListener(new View.OnClickListener(){

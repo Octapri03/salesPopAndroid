@@ -15,9 +15,15 @@ public class ProductData {
     public static ArrayList<Producto> PRODUCTOS = new ArrayList<>();
 
     static {
-        PRODUCTOS.add(new Coche(1, "Opel Corsa", 10000, "Coche muy Practico mu bonito sirve para conducir a sitios", "Valencia", Categoria.MOTOR, new Date(2010, 4, 17), new Usuario(), 1000, 2, 1000, Combustible.GASOLINA));
-        PRODUCTOS.add(new Calzado(2, "Vans y vienen", 50, "zapatos de pura calle skater y esas cosas de jovenes", "Playa de Madrid", Categoria.MODA, new Date(2010, 4, 17), new Usuario(), 46));
-        PRODUCTOS.add(new Consola(3, "Play Station 5", 800, "La nueva play me la quitan de las manos compra compra ta mu barata", "Bilbao", Categoria.JUEGOS, new Date(2010, 4, 17), new Usuario(), TipoConsola.PLAYSTATION));
-        PRODUCTOS.add(new Pc(4, "ASUS Pollo", 900, "Portatil Asus pollo, va que vuela como un pollo, se calienta como un pollo", "Barcelona", Categoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
+        PRODUCTOS.add(new Coche(1, "Opel Corsa", 10000, "Coche muy Practico mu bonito sirve para conducir a sitios", "Valencia", NombreCategoria.MOTOR, new Date(2010, 4, 17), new Usuario(), 1000, 2, 1000, Combustible.GASOLINA));
+        PRODUCTOS.add(new Calzado(2, "Vans y vienen", 50, "zapatos de pura calle skater y esas cosas de jovenes", "Playa de Madrid", NombreCategoria.MODA, new Date(2010, 4, 17), new Usuario(), 46));
+        PRODUCTOS.add(new Consola(3, "Play Station 5", 800, "La nueva play me la quitan de las manos compra compra ta mu barata", "Bilbao", NombreCategoria.JUEGOS, new Date(2010, 4, 17), new Usuario(), TipoConsola.PLAYSTATION));
+        PRODUCTOS.add(new Pc(4, "ASUS Chicken", 900, "Portatil Asus pollo, va que vuela como un pollo, se calienta como un pollo", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
+        PRODUCTOS.add(new Pc(5, "Lenovo Pro", 2200, "Portatil Lenovo Pro, con muchas especificaciones como por ejemplo ª", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
+        PRODUCTOS.add(new Pc(6, "Pc sobremesa HP", 600, "Pc HP, con muchas especificaciones como por ejemplo ª", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
+        PRODUCTOS.add(new Pc(7, "Pc Sobremesa Dell", 1900, "Pc Sobremesa Dell, con muchas especificaciones como por ejemplo ª", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.SOBREMESA));
+        PRODUCTOS.add(new Pc(8, "Pc Sobremesa PCComp", 2200, "Pc Sobremesa PCComp con muchas especificaciones como por ejemplo ª", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.SOBREMESA));
+        PRODUCTOS.add(new Pc(9, "Portatil ASUS ROG", 340, "Portatil ASUS ROG, con muchas especificaciones como por ejemplo ª", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.SOBREMESA));
+        PRODUCTOS.add(new Pc(10, "Portatil MSI", 1500, "Portatil MSI, con muchas especificaciones como por ejemplo ª", "Barcelona", NombreCategoria.INFORMATICA, new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
     }
 }

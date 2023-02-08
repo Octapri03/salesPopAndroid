@@ -10,7 +10,7 @@ import com.ocprva.salespop.api.pojo.Producto;
 
 public class DetailProductActivity extends AppCompatActivity {
 
-    TextView nombreDetail, precioDetail, ubicacionDetail, categoriaDetail, fechaDetail;
+    TextView nombreDetail, precioDetail, ubicacionDetail, categoriaDetail, fechaDetail, descripcionDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +23,15 @@ public class DetailProductActivity extends AppCompatActivity {
         ubicacionDetail = findViewById(R.id.ubicacionDetail);
         categoriaDetail = findViewById(R.id.categoriaDetail);
         fechaDetail = findViewById(R.id.fechaDetail);
+        descripcionDetail = findViewById(R.id.descripcionDetail);
 
         nombreDetail.setText(producto.getName());
-        precioDetail. setText(String.valueOf(producto.getPrice()) + "€");
+        precioDetail.setText(String.valueOf(producto.getPrice()));
+        precioDetail.setText(precioDetail.getText() + "€");
         ubicacionDetail.setText(producto.getUbication());
         categoriaDetail.setText(producto.getCategoria().toString());
         fechaDetail.setText(String.valueOf(producto.getFechaPubli().getDay())+"/"+String.valueOf(producto.getFechaPubli().getMonth())+"/"+String.valueOf(producto.getFechaPubli().getYear()));
+        descripcionDetail.setText(producto.getDescription());
 
     }
 }
