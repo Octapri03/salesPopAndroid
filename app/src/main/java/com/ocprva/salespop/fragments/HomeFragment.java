@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ocprva.salespop.R;
@@ -28,6 +31,7 @@ public class HomeFragment extends Fragment{
 
     private RecyclerView recyclerProductos;
     private ProductAdapter pAdapter;
+    private ProductAdapter filterAdapter;
     public static ArrayList<Producto> listaProductos;
     private ProductListener listener;
 
@@ -80,6 +84,37 @@ public class HomeFragment extends Fragment{
         });
 
         recyclerProductos.setAdapter(pAdapter);
+
+        EditText searchBar = view.findViewById(R.id.search_bar);
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // Implementation for filtering the recycler view goes here
+                String query = charSequence.toString().toLowerCase();
+
+                ArrayList<Producto> filteredData = new ArrayList<>();
+
+                if (query.equals("")){
+                    recyclerProductos.setAdapter(pAdapter);
+                }
+                else{
+                    for (Producto data : listaProductos) {
+                        if (data.getName().toLowerCase().contains(query)) {
+                            filteredData.add(data);
+                        }
+                    }
+                    filterAdapter = new ProductAdapter(filteredData);
+                    filterAdapter.notifyDataSetChanged();
+                    recyclerProductos.setAdapter(filterAdapter);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void afterTextChanged(Editable editable) { }
+        });
 
         return view;
     }

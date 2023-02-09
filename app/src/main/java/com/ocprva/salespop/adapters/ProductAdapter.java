@@ -61,6 +61,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
     }
 
+    public void setData(ArrayList<Producto> data) {
+        this.listaProductos = data;
+    }
+
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView nombre, categoria, ubicacion, precio;
         public ViewHolderDatos(@NonNull View itemView) {
