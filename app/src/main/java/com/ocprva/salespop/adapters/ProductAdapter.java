@@ -73,7 +73,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         public void asignarDatos(Producto producto){
             nombre.setText(producto.getName());
-            categoria.setText(producto.getCategoria().toString());
+            categoria.setText(producto.getCategoria().getNombre().toString());
             ubicacion.setText(producto.getUbication());
             precio.setText(String.valueOf(producto.getPrice()));
         }

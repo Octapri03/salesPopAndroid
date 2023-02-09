@@ -14,22 +14,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="155dp"
+
             android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/motorCard"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+
+                android:onClick="onClick"
+                app:cardBackgroundColor="#00000000"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
@@ -42,6 +48,7 @@
                         android:id="@+id/nombreCategoría1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Motor"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -49,18 +56,22 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/inmobiliariaCard"
+                android:onClick="onClick"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                app:cardBackgroundColor="#00FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
@@ -73,6 +84,7 @@
                         android:id="@+id/nombreCategoría2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Inmobiliaria"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -80,18 +92,22 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/juegosCard"
+                android:onClick="onClick"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                app:cardBackgroundColor="#00FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
@@ -104,6 +120,7 @@
                         android:id="@+id/nombreCategoría3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Juegos"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -119,18 +136,22 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/informaticaCard"
+                android:onClick="onClick"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                app:cardBackgroundColor="#00FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
@@ -143,6 +164,7 @@
                         android:id="@+id/nombreCategoría4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Informática"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -150,30 +172,35 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/telefoniaCard"
+                android:onClick="onClick"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                app:cardBackgroundColor="#00FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/imgCategoría5"
                         android:layout_width="match_parent"
                         android:layout_height="92dp"
-                        app:srcCompat="@drawable/mobile_phone_2642" />
+                        app:srcCompat="@drawable/phoneicon" />
 
                     <TextView
                         android:id="@+id/nombreCategoría5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Telefonía"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -181,18 +208,22 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/modaCard"
+                android:onClick="onClick"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                app:cardBackgroundColor="#00FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
@@ -205,6 +236,7 @@
                         android:id="@+id/nombreCategoría6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Moda"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -220,18 +252,22 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/deportesCard"
+                android:onClick="onClick"
                 android:layout_width="110dp"
                 android:layout_height="120dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                app:cardBackgroundColor="#00FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/round_white_bg"
                     android:orientation="vertical">
 
                     <ImageView
@@ -244,6 +280,7 @@
                         android:id="@+id/nombreCategoría8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="Deportes"
                         android:textSize="18sp" />
                 </LinearLayout>

@@ -29,7 +29,7 @@ public class DetailProductActivity extends AppCompatActivity {
         precioDetail.setText(String.valueOf(producto.getPrice()));
         precioDetail.setText(precioDetail.getText() + "€");
         ubicacionDetail.setText(producto.getUbication());
-        categoriaDetail.setText(producto.getCategoria().toString());
+        categoriaDetail.setText(producto.getCategoria().getNombre().toString());
         fechaDetail.setText(String.valueOf(producto.getFechaPubli().getDay())+"/"+String.valueOf(producto.getFechaPubli().getMonth())+"/"+String.valueOf(producto.getFechaPubli().getYear()));
         descripcionDetail.setText(producto.getDescription());
 

@@ -26,7 +26,6 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment{
 
-    private Producto producto;
     private RecyclerView recyclerProductos;
     private ProductAdapter pAdapter;
     public static ArrayList<Producto> listaProductos;
@@ -74,11 +73,6 @@ public class HomeFragment extends Fragment{
             public void onClick(View view) {
                 // Posición del ítem seleccionado
                 int posicion = recyclerProductos.getChildAdapterPosition(view);
-// Notificación del ítem seleccionado
-                Toast.makeText(
-                        getContext(),
-                        String.valueOf(listaProductos.get(posicion).getPrice()) ,
-                        Toast.LENGTH_LONG).show();
                 if (listener != null) {
                     listener.onProductoSeleccionada((Producto) listaProductos.get(posicion));
                 }

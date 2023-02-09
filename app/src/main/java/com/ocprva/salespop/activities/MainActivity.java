@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
 
     @Override
     public void onProductoSeleccionada(Producto p) {
-        Toast.makeText(this, "a", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, DetailProductActivity.class);
         i.putExtra("producto", p);
         startActivity(i);
