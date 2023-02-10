@@ -79,7 +79,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             nombre.setText(producto.getName());
             categoria.setText(producto.getCategoria().getNombre().toString());
             ubicacion.setText(producto.getUbication());
-            precio.setText(String.valueOf(producto.getPrice()));
+            precio.setText(String.valueOf(producto.getPrice())+"€");
         }
     }
 }

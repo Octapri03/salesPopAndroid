@@ -24,6 +24,6 @@ public class ProductData {
         PRODUCTOS.add(new Pc(7, "Pc Sobremesa Dell", 1900, "Pc Sobremesa Dell, con muchas especificaciones como por ejemplo ª", "Barcelona", new Categoria(NombreCategoria.INFORMATICA), new Date(2010, 4, 17), new Usuario(), TipoPc.SOBREMESA));
         PRODUCTOS.add(new Pc(8, "Pc Sobremesa PCComp", 2200, "Pc Sobremesa PCComp con muchas especificaciones como por ejemplo ª", "Barcelona", new Categoria(NombreCategoria.INFORMATICA), new Date(2010, 4, 17), new Usuario(), TipoPc.SOBREMESA));
         PRODUCTOS.add(new Pc(9, "Portatil ASUS ROG", 340, "Portatil ASUS ROG, con muchas especificaciones como por ejemplo ª", "Barcelona", new Categoria(NombreCategoria.INFORMATICA), new Date(2010, 4, 17), new Usuario(), TipoPc.SOBREMESA));
-        PRODUCTOS.add(new Pc(10, "Portatil MSI", 1500, "Portatil MSI, con muchas especificaciones como por ejemplo ª", "Barcelona", new Categoria(NombreCategoria.INFORMATICA), new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
+        PRODUCTOS.add(new Pc(10, "Portatil MSI", 1500, "Portatil MSI, con muchas especificaciones como por ejemplo ª", "Barcelona", new Categoria(NombreCategoria.INFORMATICA) , new Date(2010, 4, 17), new Usuario(), TipoPc.PORTATIL));
     }
 }
