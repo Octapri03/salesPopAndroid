@@ -1,19 +1,33 @@
 package com.ocprva.salespop.api.pojo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Categoria implements Serializable {
-    NombreCategoria nombre;
 
-    public Categoria(NombreCategoria nombre) {
-        this.nombre = nombre;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+    public Integer getId() {
+        return id;
     }
 
-    public NombreCategoria getNombre() {
-        return nombre;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setNombre(NombreCategoria nombre) {
-        this.nombre = nombre;
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

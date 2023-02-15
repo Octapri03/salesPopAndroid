@@ -119,7 +119,7 @@ public class SellFragment extends Fragment {
                 if (fotoProducto != null && !etNombreProducto.equals("") && !etDescripcionProducto.equals("") && !etPrecioProducto.equals("")){
                     NombreCategoria categoriaSeleccionada = (NombreCategoria) spinnerCategoria.getSelectedItem();
 
-                    Categoria categoria = new Categoria(categoriaSeleccionada);
+                    //Categoria categoria = new Categoria(categoriaSeleccionada);
 
                     //ProductData.PRODUCTOS.add(new Producto(100, etNombreProducto.getText().toString(), Integer.parseInt(etPrecioProducto.getText().toString()), etDescripcionProducto.getText().toString(), "Valencia", categoria, new Date(2010, 4, 17), new Usuario()));
                 }

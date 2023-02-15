@@ -22,6 +22,9 @@ public class Product implements Serializable {
     @SerializedName("publication_date")
     @Expose
     private String publicationDate;
+    @SerializedName("categoria")
+    @Expose
+    private Categoria categoria;
 
     public String getName() {
         return name;
@@ -61,6 +64,14 @@ public class Product implements Serializable {
 
     public void setPublicationDate(String publicationDate) {
         this.publicationDate = publicationDate;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
 }
