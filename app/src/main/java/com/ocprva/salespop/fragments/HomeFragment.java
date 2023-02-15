@@ -21,18 +21,26 @@ import com.ocprva.salespop.activities.DetailProductActivity;
 import com.ocprva.salespop.activities.MainActivity;
 import com.ocprva.salespop.adapters.ProductAdapter;
 import com.ocprva.salespop.adapters.ProductListener;
+import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.ProductData;
+import com.ocprva.salespop.api.pojo.ProductServiceInterfaz;
 import com.ocprva.salespop.api.pojo.Producto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment{
 
     private RecyclerView recyclerProductos;
     private ProductAdapter pAdapter;
     private ProductAdapter filterAdapter;
-    public static ArrayList<Producto> listaProductos;
+    public static ArrayList<Product> listaProductos;
     private ProductListener listener;
 
     public HomeFragment() {
@@ -60,14 +68,14 @@ public class HomeFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        listaProductos = ProductData.PRODUCTOS;
-
         recyclerProductos = view.findViewById(R.id.recyclerHome);
 
         recyclerProductos.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerProductos.setLayoutManager(layoutManager);
+
+        System.out.println("home");
 
         pAdapter = new ProductAdapter(listaProductos);
 
@@ -78,12 +86,34 @@ public class HomeFragment extends Fragment{
                 // Posición del ítem seleccionado
                 int posicion = recyclerProductos.getChildAdapterPosition(view);
                 if (listener != null) {
-                    listener.onProductoSeleccionada((Producto) listaProductos.get(posicion));
+                    listener.onProductoSeleccionada((Product) listaProductos.get(posicion));
                 }
             }
         });
 
-        recyclerProductos.setAdapter(pAdapter);
+
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.8.102:8080/api/").addConverterFactory(GsonConverterFactory.create()).build();
+
+        ProductServiceInterfaz service = retrofit.create(ProductServiceInterfaz.class);
+        listaProductos = new ArrayList<>();
+        Call<ArrayList<Product>> call = service.getProducts();
+
+        call.enqueue(new Callback<ArrayList<Product>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
+                System.out.println("funcionaAAAAAAAAAAA");
+                listaProductos = response.body();
+                pAdapter.setData(listaProductos);
+                recyclerProductos.setAdapter(pAdapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+            }
+        });
 
         EditText searchBar = view.findViewById(R.id.search_bar);
         searchBar.addTextChangedListener(new TextWatcher() {
@@ -92,13 +122,13 @@ public class HomeFragment extends Fragment{
                 // Implementation for filtering the recycler view goes here
                 String query = charSequence.toString().toLowerCase();
 
-                ArrayList<Producto> filteredData = new ArrayList<>();
+                ArrayList<Product> filteredData = new ArrayList<>();
 
                 if (query.equals("")){
                     recyclerProductos.setAdapter(pAdapter);
                 }
                 else{
-                    for (Producto data : listaProductos) {
+                    for (Product data : listaProductos) {
                         if (data.getName().toLowerCase().contains(query)) {
                             filteredData.add(data);
                         }

@@ -11,18 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ocprva.salespop.R;
+import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.ProductData;
-import com.ocprva.salespop.api.pojo.Producto;
 
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolderDatos> implements View.OnClickListener{
 
-    ArrayList<Producto> listaProductos;
+    ArrayList<Product> listaProductos;
 
     private View.OnClickListener listener;
 
-    public ProductAdapter(ArrayList<Producto> listaProductos) {
+    public ProductAdapter(ArrayList<Product> listaProductos) {
         this.listaProductos = listaProductos;
     }
 
@@ -61,7 +61,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
     }
 
-    public void setData(ArrayList<Producto> data) {
+    public void setData(ArrayList<Product> data) {
         this.listaProductos = data;
     }
 
@@ -75,9 +75,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             this.precio = itemView.findViewById(R.id.precioProducto);
         }
 
-        public void asignarDatos(Producto producto){
+        public void asignarDatos(Product producto){
             nombre.setText(producto.getName());
-            categoria.setText(producto.getCategoria().getNombre().toString());
+            //categoria.setText(producto.getCategoria().getNombre().toString());
             ubicacion.setText(producto.getUbication());
             precio.setText(String.valueOf(producto.getPrice())+"€");
         }

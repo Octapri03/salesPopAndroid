@@ -17,7 +17,7 @@ import com.ocprva.salespop.activities.CategoryListActivity;
 import com.ocprva.salespop.adapters.ProductAdapter;
 import com.ocprva.salespop.api.pojo.NombreCategoria;
 import com.ocprva.salespop.api.pojo.ProductData;
-import com.ocprva.salespop.api.pojo.Producto;
+import com.ocprva.salespop.api.pojo.Product;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class CategoriesFragment extends Fragment {
     private RecyclerView recyclerProductos;
     private ProductAdapter pAdapter;
     private CardView motorCard, inmobiliariaCard, juegosCard, informaticaCard, telefoniaCard, modaCard, deportesCard;
-    private ArrayList<Producto> productos;
+    private ArrayList<Product> productos;
     private Intent intent;
 
     public CategoriesFragment() {
@@ -82,10 +82,10 @@ public class CategoriesFragment extends Fragment {
             card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    switch (v.getId()){
+                    /*switch (v.getId()){
                         case R.id.motorCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.MOTOR)){
                                     productos.add(producto);
                                 }
@@ -96,7 +96,7 @@ public class CategoriesFragment extends Fragment {
                             break;
                         case R.id.inmobiliariaCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.INMOBILIARIA)){
                                     productos.add(producto);
                                 }
@@ -107,7 +107,7 @@ public class CategoriesFragment extends Fragment {
                             break;
                         case R.id.juegosCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.JUEGOS)){
                                     productos.add(producto);
                                 }
@@ -118,7 +118,7 @@ public class CategoriesFragment extends Fragment {
                             break;
                         case R.id.informaticaCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.INFORMATICA)){
                                     productos.add(producto);
                                 }
@@ -129,7 +129,7 @@ public class CategoriesFragment extends Fragment {
                             break;
                         case R.id.telefoniaCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.TELEFONIA)){
                                     productos.add(producto);
                                 }
@@ -140,7 +140,7 @@ public class CategoriesFragment extends Fragment {
                             break;
                         case R.id.modaCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.MODA)){
                                     productos.add(producto);
                                 }
@@ -151,7 +151,7 @@ public class CategoriesFragment extends Fragment {
                             break;
                         case R.id.deportesCard:
                             productos.clear();
-                            for (Producto producto : ProductData.PRODUCTOS) {
+                            for (Product producto : ProductData.PRODUCTOS) {
                                 if (producto.getCategoria().getNombre().equals(NombreCategoria.DEPORTES)){
                                     productos.add(producto);
                                 }
@@ -160,7 +160,7 @@ public class CategoriesFragment extends Fragment {
                             intent.putExtra("productos", productos);
                             startActivity(intent);
                             break;
-                    }
+                    }*/
                 }
             });
         }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.ocprva.salespop.R;
+import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.Producto;
 
 public class DetailProductActivity extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class DetailProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_product);
 
-        Producto producto = (Producto) this.getIntent().getSerializableExtra("producto");
+        Product producto = (Product) this.getIntent().getSerializableExtra("producto");
         nombreDetail = findViewById(R.id.nombreDetail);
         precioDetail = findViewById(R.id.precioDetail);
         ubicacionDetail = findViewById(R.id.ubicacionDetail);
@@ -29,8 +30,8 @@ public class DetailProductActivity extends AppCompatActivity {
         precioDetail.setText(String.valueOf(producto.getPrice()));
         precioDetail.setText(precioDetail.getText() + "€");
         ubicacionDetail.setText(producto.getUbication());
-        categoriaDetail.setText(producto.getCategoria().getNombre().toString());
-        fechaDetail.setText(String.valueOf(producto.getFechaPubli().getDay())+"/"+String.valueOf(producto.getFechaPubli().getMonth())+"/"+String.valueOf(producto.getFechaPubli().getYear()));
+        //categoriaDetail.setText(producto.getCategoria().getNombre().toString());
+        fechaDetail.setText(producto.getPublicationDate());
         descripcionDetail.setText(producto.getDescription());
 
     }

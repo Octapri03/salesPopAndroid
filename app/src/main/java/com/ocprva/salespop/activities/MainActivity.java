@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.adapters.ProductListener;
+import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.Producto;
 import com.ocprva.salespop.fragments.CategoriesFragment;
 import com.ocprva.salespop.fragments.FavsFragment;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
     }
 
     @Override
-    public void onProductoSeleccionada(Producto p) {
+    public void onProductoSeleccionada(Product p) {
         Intent i = new Intent(this, DetailProductActivity.class);
         i.putExtra("producto", p);
         startActivity(i);

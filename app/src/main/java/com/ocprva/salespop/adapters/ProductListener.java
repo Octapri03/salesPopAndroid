@@ -1,7 +1,8 @@
 package com.ocprva.salespop.adapters;
 
-import com.ocprva.salespop.api.pojo.Producto;
+
+import com.ocprva.salespop.api.pojo.Product;
 
 public interface ProductListener {
-    void onProductoSeleccionada(Producto p);
+    void onProductoSeleccionada(Product p);
 }

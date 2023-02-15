@@ -11,6 +11,7 @@ import android.view.View;
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.adapters.ProductAdapter;
 import com.ocprva.salespop.adapters.ProductListener;
+import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.ProductData;
 import com.ocprva.salespop.api.pojo.Producto;
 
@@ -20,7 +21,7 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
 
     private RecyclerView recyclerCategories;
     private ProductAdapter pAdapter;
-    public static ArrayList<Producto> listaProductos;
+    public static ArrayList<Product> listaProductos;
     private ProductListener listener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
 
         this.setProductosListener(this::onProductoSeleccionada);
 
-        ArrayList<Producto> productos = (ArrayList<Producto>) getIntent().getSerializableExtra("productos");
+        ArrayList<Product> productos = (ArrayList<Product>) getIntent().getSerializableExtra("productos");
 
         listaProductos = productos;
 
@@ -51,7 +52,7 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
                 // Posición del ítem seleccionado
                 int posicion = recyclerCategories.getChildAdapterPosition(view);
                 if (listener != null) {
-                    listener.onProductoSeleccionada((Producto) listaProductos.get(posicion));
+                    listener.onProductoSeleccionada((Product) listaProductos.get(posicion));
                 }
             }
         });
@@ -60,7 +61,7 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
     }
 
     @Override
-    public void onProductoSeleccionada(Producto p) {
+    public void onProductoSeleccionada(Product p) {
         Intent i = new Intent(this, DetailProductActivity.class);
         i.putExtra("producto", p);
         startActivity(i);
