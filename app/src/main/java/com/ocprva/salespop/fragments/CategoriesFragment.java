@@ -5,18 +5,14 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.activities.CategoryListActivity;
-import com.ocprva.salespop.adapters.ProductAdapter;
-import com.ocprva.salespop.api.pojo.NombreCategoria;
-import com.ocprva.salespop.api.pojo.ProductData;
+import com.ocprva.salespop.activities.LoginActivity;
 import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.ProductServiceInterfaz;
 
@@ -35,8 +31,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class CategoriesFragment extends Fragment {
 
-    private RecyclerView recyclerProductos;
-    private ProductAdapter pAdapter;
     private CardView motorCard, inmobiliariaCard, juegosCard, informaticaCard, telefoniaCard, modaCard, deportesCard;
     private ArrayList<Product> productos;
     private ArrayList<Product> listaProductos;
@@ -82,29 +76,28 @@ public class CategoriesFragment extends Fragment {
         listaProductos = new ArrayList<>();
         Call<ArrayList<Product>> call = service.getProducts();
 
-        call.enqueue(new Callback<ArrayList<Product>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                System.out.println("funcionaAAAAAAAAAAA");
-                listaProductos = response.body();
-                ArrayList<CardView> categorias = new ArrayList<>();
-                productos = new ArrayList<>();
+        ArrayList<CardView> categorias = new ArrayList<>();
+        productos = new ArrayList<>();
 
-                categorias.add(motorCard);
-                categorias.add(inmobiliariaCard);
-                categorias.add(juegosCard);
-                categorias.add(informaticaCard);
-                categorias.add(telefoniaCard);
-                categorias.add(modaCard);
-                categorias.add(deportesCard);
+        categorias.add(motorCard);
+        categorias.add(inmobiliariaCard);
+        categorias.add(juegosCard);
+        categorias.add(informaticaCard);
+        categorias.add(telefoniaCard);
+        categorias.add(modaCard);
+        categorias.add(deportesCard);
 
-                for (CardView card : categorias) {
-                    card.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            switch (v.getId()){
-                                case R.id.motorCard:
+        for (CardView card : categorias) {
+            card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    switch (v.getId()){
+                        case R.id.motorCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("MOTOR")){
                                             productos.add(producto);
@@ -113,9 +106,22 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                                case R.id.inmobiliariaCard:
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                    intent = new Intent(getActivity(), LoginActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+                            break;
+                        case R.id.inmobiliariaCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("INMOBILIARIA")){
                                             productos.add(producto);
@@ -124,9 +130,22 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                                case R.id.juegosCard:
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                }
+                            });
+                            break;
+
+                        case R.id.juegosCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("JUEGOS")){
                                             productos.add(producto);
@@ -135,9 +154,21 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                                case R.id.informaticaCard:
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                }
+                            });
+
+                            break;
+                        case R.id.informaticaCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("INFORMATICA")){
                                             productos.add(producto);
@@ -146,9 +177,21 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                                case R.id.telefoniaCard:
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                }
+                            });
+
+                            break;
+                        case R.id.telefoniaCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("TELEFONIA")){
                                             productos.add(producto);
@@ -157,9 +200,21 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                                case R.id.modaCard:
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                }
+                            });
+
+                            break;
+                        case R.id.modaCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("MODA")){
                                             productos.add(producto);
@@ -168,9 +223,21 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                                case R.id.deportesCard:
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                }
+                            });
+
+                            break;
+                        case R.id.deportesCard:
+                            call.enqueue(new Callback<ArrayList<Product>>() {
+                                @Override
+                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                                     productos.clear();
+                                    listaProductos = response.body();
                                     for (Product producto : listaProductos) {
                                         if (producto.getCategoria().getName().equals("DEPORTES")){
                                             productos.add(producto);
@@ -179,19 +246,20 @@ public class CategoriesFragment extends Fragment {
                                     intent = new Intent(getActivity(), CategoryListActivity.class);
                                     intent.putExtra("productos", productos);
                                     startActivity(intent);
-                                    break;
-                            }
-                        }
-                    });
+                                }
+
+                                @Override
+                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                                }
+                            });
+
+                            break;
+                    }
                 }
+            });
 
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-            }
-        });
+        }
 
 
 

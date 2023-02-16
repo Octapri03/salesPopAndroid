@@ -1,10 +1,8 @@
 package com.ocprva.salespop.adapters;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.api.pojo.Product;
-import com.ocprva.salespop.api.pojo.ProductData;
 
 import java.util.ArrayList;
 

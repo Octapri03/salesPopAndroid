@@ -12,8 +12,6 @@ import com.ocprva.salespop.R;
 import com.ocprva.salespop.adapters.ProductAdapter;
 import com.ocprva.salespop.adapters.ProductListener;
 import com.ocprva.salespop.api.pojo.Product;
-import com.ocprva.salespop.api.pojo.ProductData;
-import com.ocprva.salespop.api.pojo.Producto;
 
 import java.util.ArrayList;
 

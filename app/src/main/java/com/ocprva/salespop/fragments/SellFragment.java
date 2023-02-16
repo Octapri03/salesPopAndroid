@@ -1,13 +1,8 @@
 package com.ocprva.salespop.fragments;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -25,16 +20,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ocprva.salespop.R;
-import com.ocprva.salespop.api.pojo.Categoria;
-import com.ocprva.salespop.api.pojo.NombreCategoria;
-import com.ocprva.salespop.api.pojo.ProductData;
-import com.ocprva.salespop.api.pojo.Producto;
-import com.ocprva.salespop.api.pojo.Usuario;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -117,7 +104,7 @@ public class SellFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (fotoProducto != null && !etNombreProducto.equals("") && !etDescripcionProducto.equals("") && !etPrecioProducto.equals("")){
-                    NombreCategoria categoriaSeleccionada = (NombreCategoria) spinnerCategoria.getSelectedItem();
+                    //NombreCategoria categoriaSeleccionada = (NombreCategoria) spinnerCategoria.getSelectedItem();
 
                     //Categoria categoria = new Categoria(categoriaSeleccionada);
 
@@ -127,11 +114,11 @@ public class SellFragment extends Fragment {
             }
         });
 
-        final NombreCategoria[] categorias = new NombreCategoria[]{NombreCategoria.MOTOR, NombreCategoria.INMOBILIARIA, NombreCategoria.JUEGOS, NombreCategoria.INFORMATICA, NombreCategoria.TELEFONIA, NombreCategoria.MODA, NombreCategoria.DEPORTES};
-        ArrayAdapter<NombreCategoria> adapterCategorias =
-                new ArrayAdapter<NombreCategoria>(getActivity(),
-                        android.R.layout.simple_spinner_item, categorias);
-        spinnerCategoria.setAdapter(adapterCategorias);
+        //final NombreCategoria[] categorias = new NombreCategoria[]{NombreCategoria.MOTOR, NombreCategoria.INMOBILIARIA, NombreCategoria.JUEGOS, NombreCategoria.INFORMATICA, NombreCategoria.TELEFONIA, NombreCategoria.MODA, NombreCategoria.DEPORTES};
+        //ArrayAdapter<NombreCategoria> adapterCategorias =
+         //       new ArrayAdapter<NombreCategoria>(getActivity(),
+          //              android.R.layout.simple_spinner_item, categorias);
+        //spinnerCategoria.setAdapter(adapterCategorias);
 
         return view;
     }

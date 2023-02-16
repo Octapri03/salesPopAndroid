@@ -2,12 +2,12 @@ package com.ocprva.salespop.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.api.pojo.Product;
-import com.ocprva.salespop.api.pojo.Producto;
 
 public class DetailProductActivity extends AppCompatActivity {
 
@@ -34,5 +34,11 @@ public class DetailProductActivity extends AppCompatActivity {
         fechaDetail.setText(producto.getPublicationDate());
         descripcionDetail.setText(producto.getDescription());
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DetailProductActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

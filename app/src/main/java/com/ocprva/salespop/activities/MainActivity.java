@@ -7,22 +7,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.adapters.ProductListener;
 import com.ocprva.salespop.api.pojo.Product;
-import com.ocprva.salespop.api.pojo.Producto;
 import com.ocprva.salespop.fragments.CategoriesFragment;
 import com.ocprva.salespop.fragments.FavsFragment;
 import com.ocprva.salespop.fragments.HomeFragment;
 import com.ocprva.salespop.fragments.SellFragment;
 import com.ocprva.salespop.fragments.UserFragment;
-
-import java.io.Serializable;
 
 
 public class MainActivity extends AppCompatActivity implements ProductListener {
