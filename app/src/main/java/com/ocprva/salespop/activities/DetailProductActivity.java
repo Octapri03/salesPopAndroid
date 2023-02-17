@@ -36,9 +36,5 @@ public class DetailProductActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(DetailProductActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+
 }

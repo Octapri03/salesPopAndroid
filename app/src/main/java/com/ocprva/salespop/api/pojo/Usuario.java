@@ -3,43 +3,39 @@ package com.ocprva.salespop.api.pojo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario implements Serializable {
-    private int id;
+import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class Usuario implements Serializable{
+
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
     private String name;
+    @SerializedName("user_name")
+    @Expose
     private String userName;
+    @SerializedName("mail")
+    @Expose
     private String mail;
+    @SerializedName("password")
+    @Expose
     private String password;
-    private int numTel;
-    ArrayList<Producto> onSale;
-    ArrayList<Producto> favs;
+    @SerializedName("num_tel")
+    @Expose
+    private Object numTel;
+    @SerializedName("on_sale")
+    @Expose
+    private List<Product> onSale;
 
-    public Usuario(int id, String name, String userName, String mail, String password, int numTel, ArrayList<Producto> onSale, ArrayList<Producto> favs) {
-        this.id = id;
-        this.name = name;
-        this.userName = userName;
-        this.mail = mail;
-        this.password = password;
-        this.numTel = numTel;
-        this.onSale = onSale;
-        this.favs = favs;
-    }
-
-    public Usuario() {
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -67,41 +63,28 @@ public class Usuario implements Serializable {
         this.mail = mail;
     }
 
-    public int getNumTel() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Object getNumTel() {
         return numTel;
     }
 
-    public void setNumTel(int numTel) {
+    public void setNumTel(Object numTel) {
         this.numTel = numTel;
     }
 
-    public ArrayList<Producto> getOnSale() {
+    public List<Product> getOnSale() {
         return onSale;
     }
 
-    public void setOnSale(ArrayList<Producto> onSale) {
+    public void setOnSale(List<Product> onSale) {
         this.onSale = onSale;
     }
 
-    public ArrayList<Producto> getFavs() {
-        return favs;
-    }
-
-    public void setFavs(ArrayList<Producto> favs) {
-        this.favs = favs;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
-                ", mail='" + mail + '\'' +
-                ", password='" + password + '\'' +
-                ", numTel=" + numTel +
-                ", onSale=" + onSale +
-                ", favs=" + favs +
-                '}';
-    }
 }

@@ -1,5 +1,6 @@
 package com.ocprva.salespop.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,10 +15,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.ocprva.salespop.R;
+import com.ocprva.salespop.activities.FailureActivity;
 import com.ocprva.salespop.adapters.ProductAdapter;
 import com.ocprva.salespop.adapters.ProductListener;
 import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.ProductServiceInterfaz;
+import com.ocprva.salespop.api.pojo.Usuario;
 
 import java.util.ArrayList;
 
@@ -34,15 +37,17 @@ public class HomeFragment extends Fragment{
     private ProductAdapter filterAdapter;
     public static ArrayList<Product> listaProductos;
     private ProductListener listener;
+    private Usuario usuario;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
 
-    public static HomeFragment newInstance(String param1, String param2) {
+    public static HomeFragment newInstance(Usuario user) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
+        args.putSerializable("user", user);
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,6 +64,8 @@ public class HomeFragment extends Fragment{
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        usuario = (Usuario) getArguments().getSerializable("user");
 
         recyclerProductos = view.findViewById(R.id.recyclerHome);
 
@@ -85,7 +92,7 @@ public class HomeFragment extends Fragment{
 
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.8.102:8080/api/").addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.8.12:8080/api/").addConverterFactory(GsonConverterFactory.create()).build();
 
         ProductServiceInterfaz service = retrofit.create(ProductServiceInterfaz.class);
         listaProductos = new ArrayList<>();
@@ -103,7 +110,9 @@ public class HomeFragment extends Fragment{
 
             @Override
             public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                Intent intent = new Intent(getActivity(), FailureActivity.class);
                 System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
+                startActivity(intent);
             }
         });
 

@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ocprva.salespop.R;
 import com.ocprva.salespop.adapters.ProductListener;
 import com.ocprva.salespop.api.pojo.Product;
+import com.ocprva.salespop.api.pojo.Usuario;
 import com.ocprva.salespop.fragments.CategoriesFragment;
 import com.ocprva.salespop.fragments.FavsFragment;
 import com.ocprva.salespop.fragments.HomeFragment;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
 
     HomeFragment homeFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        homeFragment = new HomeFragment();
+        Usuario user = (Usuario) this.getIntent().getSerializableExtra("usuario");
+
+        homeFragment = HomeFragment.newInstance(user);
 
         homeFragment.setProductosListener(this);
 

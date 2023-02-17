@@ -68,4 +68,10 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
     public void setProductosListener(ProductListener listener) {
         this.listener = listener;
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CategoryListActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

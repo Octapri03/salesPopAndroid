@@ -70,7 +70,7 @@ public class CategoriesFragment extends Fragment {
         modaCard = view.findViewById(R.id.modaCard);
         deportesCard = view.findViewById(R.id.deportesCard);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.8.102:8080/api/").addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.8.12:8080/api/").addConverterFactory(GsonConverterFactory.create()).build();
 
         ProductServiceInterfaz service = retrofit.create(ProductServiceInterfaz.class);
         listaProductos = new ArrayList<>();
