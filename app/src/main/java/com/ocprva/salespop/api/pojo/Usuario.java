@@ -87,4 +87,16 @@ public class Usuario implements Serializable{
         this.onSale = onSale;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", numTel=" + numTel +
+                ", onSale=" + onSale +
+                '}';
+    }
 }

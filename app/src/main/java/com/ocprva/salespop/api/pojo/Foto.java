@@ -3,9 +3,7 @@ package com.ocprva.salespop.api.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class Categoria implements Serializable {
+public class Foto {
 
     @SerializedName("id")
     @Expose
@@ -13,6 +11,12 @@ public class Categoria implements Serializable {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("url_imagen")
+    @Expose
+    private String urlImagen;
+    @SerializedName("product")
+    @Expose
+    private Product product;
 
     public Integer getId() {
         return id;
@@ -30,11 +34,21 @@ public class Categoria implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Categoria{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public String getUrlImagen() {
+        return urlImagen;
     }
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+
 }

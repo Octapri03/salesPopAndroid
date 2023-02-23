@@ -12,6 +12,7 @@ import com.ocprva.salespop.R;
 import com.ocprva.salespop.adapters.ProductAdapter;
 import com.ocprva.salespop.adapters.ProductListener;
 import com.ocprva.salespop.api.pojo.Product;
+import com.ocprva.salespop.api.pojo.Usuario;
 
 import java.util.ArrayList;
 
@@ -21,18 +22,19 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
     private ProductAdapter pAdapter;
     public static ArrayList<Product> listaProductos;
     private ProductListener listener;
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
-
-
 
         recyclerCategories = findViewById(R.id.recyclerCategories);
 
         this.setProductosListener(this::onProductoSeleccionada);
 
         ArrayList<Product> productos = (ArrayList<Product>) getIntent().getSerializableExtra("productos");
+
+        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
 
         listaProductos = productos;
 
@@ -72,6 +74,7 @@ public class CategoryListActivity extends AppCompatActivity implements ProductLi
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(CategoryListActivity.this, MainActivity.class);
+        intent.putExtra("usuario", usuario);
         startActivity(intent);
     }
 }

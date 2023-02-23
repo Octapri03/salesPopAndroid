@@ -107,7 +107,27 @@ public class LoginActivity extends AppCompatActivity {
 
             case R.id.btnGuest:
                 intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.8.12:8080/api/").addConverterFactory(GsonConverterFactory.create()).build();
+
+                UsuarioServiceInterfaz service = retrofit.create(UsuarioServiceInterfaz.class);
+                Call<Usuario> call = service.validarUsuario("invitado@gmail.com", "invitado");
+
+                call.enqueue(new Callback<Usuario>() {
+                    @Override
+                    public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                        System.out.println("funciona retrofit usuario");
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("usuario", response.body());
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Usuario> call, Throwable t) {
+                        System.out.println("no funciona retrofit usuario");
+                    }
+                });
                 break;
         }
     }

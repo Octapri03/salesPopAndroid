@@ -24,7 +24,9 @@ import com.ocprva.salespop.fragments.UserFragment;
 public class MainActivity extends AppCompatActivity implements ProductListener {
 
     HomeFragment homeFragment;
-
+    UserFragment userFragment;
+    CategoriesFragment categoriesFragment;
+    SellFragment sellFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
         Usuario user = (Usuario) this.getIntent().getSerializableExtra("usuario");
 
         homeFragment = HomeFragment.newInstance(user);
+        userFragment = UserFragment.newInstance(user);
+        categoriesFragment = CategoriesFragment.newInstance(user);
+        sellFragment = SellFragment.newInstance(user);
 
         homeFragment.setProductosListener(this);
 
@@ -49,11 +54,11 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
                         break;
 
                     case R.id.categoriesMenu:
-                        loadFragment(new CategoriesFragment());
+                        loadFragment(categoriesFragment);
                         break;
 
                     case R.id.sellMenu:
-                        loadFragment(new SellFragment());
+                        loadFragment(sellFragment);
                         break;
 
                     case R.id.favsMenu:
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements ProductListener {
                         break;
 
                     case R.id.userMenu:
-                        loadFragment(new UserFragment());
+                        loadFragment(userFragment);
                         break;
                 }
                 return true;

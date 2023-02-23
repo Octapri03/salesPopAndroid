@@ -15,6 +15,7 @@ import com.ocprva.salespop.activities.CategoryListActivity;
 import com.ocprva.salespop.activities.LoginActivity;
 import com.ocprva.salespop.api.pojo.Product;
 import com.ocprva.salespop.api.pojo.ProductServiceInterfaz;
+import com.ocprva.salespop.api.pojo.Usuario;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,7 @@ public class CategoriesFragment extends Fragment {
     private ArrayList<Product> productos;
     private ArrayList<Product> listaProductos;
     private Intent intent;
+    private Usuario usuario;
 
 
     public CategoriesFragment() {
@@ -42,9 +44,10 @@ public class CategoriesFragment extends Fragment {
     }
 
     // TODO: Rename and change types and number of parameters
-    public static CategoriesFragment newInstance() {
+    public static CategoriesFragment newInstance(Usuario user) {
         CategoriesFragment fragment = new CategoriesFragment();
         Bundle args = new Bundle();
+        args.putSerializable("user", user);
         fragment.setArguments(args);
         return fragment;
     }
@@ -61,6 +64,8 @@ public class CategoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_categories, container, false);
+
+        usuario = (Usuario) getArguments().getSerializable("user");
 
         motorCard = view.findViewById(R.id.motorCard);
         inmobiliariaCard = view.findViewById(R.id.inmobiliariaCard);
@@ -91,178 +96,63 @@ public class CategoriesFragment extends Fragment {
             card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    switch (v.getId()){
-                        case R.id.motorCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("MOTOR")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
-                                }
+                    call.enqueue(new Callback<ArrayList<Product>>() {
+                        @Override
+                        public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
+                            switch (v.getId()) {
+                                case R.id.motorCard:
+                                    startCategory(response.body(), "MOTOR");
+                                    break;
+                                case R.id.inmobiliariaCard:
+                                    startCategory(response.body(), "INMOBILIARIA");
+                                    break;
+                                case R.id.juegosCard:
+                                    startCategory(response.body(), "JUEGOS");
+                                    break;
+                                case R.id.informaticaCard:
+                                    startCategory(response.body(), "INFORMATICA");
+                                    break;
+                                case R.id.telefoniaCard:
+                                    startCategory(response.body(), "TELEFONIA");
+                                    break;
+                                case R.id.modaCard:
+                                    startCategory(response.body(), "MODA");
+                                    break;
+                                case R.id.deportesCard:
+                                    startCategory(response.body(), "DEPORTES");
+                                    break;
+                            }
 
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                    intent = new Intent(getActivity(), LoginActivity.class);
-                                    startActivity(intent);
-                                }
-                            });
-                            break;
-                        case R.id.inmobiliariaCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("INMOBILIARIA")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
+                        }
 
-                                }
-
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                }
-                            });
-                            break;
-
-                        case R.id.juegosCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("JUEGOS")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                }
-                            });
-
-                            break;
-                        case R.id.informaticaCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("INFORMATICA")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                }
-                            });
-
-                            break;
-                        case R.id.telefoniaCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("TELEFONIA")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                }
-                            });
-
-                            break;
-                        case R.id.modaCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("MODA")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                }
-                            });
-
-                            break;
-                        case R.id.deportesCard:
-                            call.enqueue(new Callback<ArrayList<Product>>() {
-                                @Override
-                                public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                                    productos.clear();
-                                    listaProductos = response.body();
-                                    for (Product producto : listaProductos) {
-                                        if (producto.getCategoria().getName().equals("DEPORTES")){
-                                            productos.add(producto);
-                                        }
-                                    }
-                                    intent = new Intent(getActivity(), CategoryListActivity.class);
-                                    intent.putExtra("productos", productos);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
-                                    System.out.println("POR QUEEEEEEEEEEEEEEEEEEEEEEE");
-                                }
-                            });
-
-                            break;
-                    }
+                        @Override
+                        public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
+                            conFailed();
+                        }
+                    });
                 }
-            });
-
+                });
         }
-
-
-
         return view;
+    }
+
+    public void conFailed(){
+        System.out.println("Connection Failed");
+        intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void startCategory(ArrayList<Product> listaRecibida, String categoria){
+        productos.clear();
+        listaProductos = listaRecibida;
+        for (Product producto : listaProductos) {
+            if (producto.getCategoria().getName().equals(categoria)){
+                productos.add(producto);
+            }
+        }
+        intent = new Intent(getActivity(), CategoryListActivity.class);
+        intent.putExtra("productos", productos);
+        intent.putExtra("usuario", usuario);
+        startActivity(intent);
     }
 }

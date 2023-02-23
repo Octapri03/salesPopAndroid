@@ -62,7 +62,7 @@
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="UserName:"
+            android:text="UserName: "
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,16 +87,16 @@
 
         <TextView
             android:id="@+id/telefonoUsuario"
-            android:background="@drawable/round_white_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="10dp"
+            android:background="@drawable/round_white_edit"
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="Teléfono:"
+            android:text="Teléfono: "
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,16 +104,16 @@
 
         <TextView
             android:id="@+id/enVentaUsuario"
-            android:background="@drawable/round_white_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="10dp"
+            android:background="@drawable/round_white_edit"
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="Articulos en Venta:"
+            android:text="Articulos en Venta: "
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +130,7 @@
             app:layout_constraintTop_toBottomOf="@+id/enVentaUsuario" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnBorrarCuenta"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:layout_marginTop="8dp"
